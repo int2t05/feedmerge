@@ -30,15 +30,16 @@
   {
     "name": "有新Newin",
     "platform": "微信公众号",
-    "mode": "pending",
-    "url": "https://www.iyangqi.com/member/48",
-    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+    "mode": "active",
+    "url": "https://wechat2rss.bestblogs.dev/feed/74554dcb3da8982083426b871bc8c314a9de9729.xml",
+    "adapter": "rss"
   },
   {
     "name": "赛博禅心",
     "platform": "微信公众号",
-    "mode": "pending",
-    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+    "mode": "active",
+    "url": "https://wechat2rss.bestblogs.dev/feed/752c31ca0446b837339463fc5440539e20267d2f.xml",
+    "adapter": "rss"
   },
   {
     "name": "CV Hub",
@@ -55,15 +56,16 @@
   {
     "name": "王建硕",
     "platform": "微信公众号",
-    "mode": "pending",
-    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+    "mode": "active",
+    "url": "https://wechat2rss.bestblogs.dev/feed/98bc4f50442b51ab17e9e07ff42799377abeabe2.xml",
+    "adapter": "rss"
   },
   {
     "name": "ShowMeAI",
-    "platform": "微信公众号",
-    "mode": "pending",
-    "url": "https://www.showmeai.tech/",
-    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+    "platform": "博客园 · 同团队",
+    "mode": "active",
+    "url": "https://feed.cnblogs.com/blog/u/718629/rss/",
+    "adapter": "rss"
   },
   {
     "name": "极客公园",
@@ -75,8 +77,9 @@
   {
     "name": "红杉汇",
     "platform": "微信公众号",
-    "mode": "pending",
-    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+    "mode": "active",
+    "url": "https://wechat2rss.bestblogs.dev/feed/fb9c7a3ba3666dc1b0956b0dac916cd5c56ecf9f.xml",
+    "adapter": "rss"
   },
   {
     "name": "五源资本",
@@ -86,21 +89,24 @@
   },
   {
     "name": "马丁的面包屑",
-    "platform": "微信公众号",
-    "mode": "pending",
-    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+    "platform": "即刻 · 作者主页",
+    "mode": "active",
+    "url": "https://m.jellow.club/users/A84C8F07-F0F9-4F89-A43A-F4E4B682F5D4",
+    "adapter": "jike"
   },
   {
     "name": "共识粉碎机",
-    "platform": "微信公众号",
-    "mode": "pending",
-    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+    "platform": "小宇宙 · 同作者播客",
+    "mode": "active",
+    "url": "https://www.xiaoyuzhoufm.com/podcast/6673b029c26e396a36145a8f",
+    "adapter": "podcast"
   },
   {
     "name": "数据派THU",
-    "platform": "微信公众号",
-    "mode": "pending",
-    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+    "platform": "腾讯云开发者社区 · 同名专栏",
+    "mode": "active",
+    "url": "https://cloud.tencent.com/developer/column/2010",
+    "adapter": "tencent-column"
   },
   {
     "name": "新硅NewGeek",
@@ -111,23 +117,23 @@
   {
     "name": "暗涌Waves",
     "platform": "微信公众号",
-    "mode": "pending",
-    "url": "https://www.36kr.com/p/3531950187338882",
-    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+    "mode": "active",
+    "url": "https://wechat2rss.bestblogs.dev/feed/bd586c1499b56aaec02dfefa87126232d234b010.xml",
+    "adapter": "rss"
   },
   {
     "name": "远川研究所",
     "platform": "微信公众号",
-    "mode": "pending",
-    "url": "https://yuanchuan.cn/",
-    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+    "mode": "active",
+    "url": "https://wechat2rss.bestblogs.dev/feed/fae262a71b2c0f867011d3c40e02bff3272d90df.xml",
+    "adapter": "rss"
   },
   {
     "name": "lencx@浮之静",
-    "platform": "微信公众号",
-    "mode": "pending",
-    "url": "https://github.com/lenxAI",
-    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+    "platform": "X · 作者主页",
+    "mode": "active",
+    "url": "https://fixupx.com/lencx_/feed.xml",
+    "adapter": "rss"
   },
   {
     "name": "质朴发言",
@@ -138,8 +144,9 @@
   {
     "name": "硅星人Pro",
     "platform": "微信公众号",
-    "mode": "pending",
-    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+    "mode": "active",
+    "url": "https://wechat2rss.bestblogs.dev/feed/c62ceda9eed269d851802bdbc5f33c4fabbf7462.xml",
+    "adapter": "rss"
   },
   {
     "name": "孔某人的低维认知",
@@ -149,9 +156,10 @@
   },
   {
     "name": "潜云思绪",
-    "platform": "微信公众号",
-    "mode": "pending",
-    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+    "platform": "即刻 · 作者主页",
+    "mode": "active",
+    "url": "https://m.okjike.com/users/E04918BA-823C-4284-B2FA-7E00D0849023",
+    "adapter": "jike"
   },
   {
     "name": "夕小瑶科技说",
@@ -274,9 +282,9 @@
   },
   {
     "name": "Jimmy wong",
-    "platform": "博客",
+    "platform": "X · 作者主页",
     "mode": "active",
-    "url": "https://suiyisouxun.substack.com/feed",
+    "url": "https://fixupx.com/thinkingjimmy/feed.xml",
     "adapter": "rss"
   },
   {
@@ -325,5 +333,509 @@
     "mode": "active",
     "url": "https://m.okjike.com/topics/63579abb6724cc583b9bba9a",
     "adapter": "jike"
+  },
+  {
+    "name": "Tibo（Thibault Sottiaux）",
+    "platform": "X · OpenAI",
+    "mode": "active",
+    "url": "https://fixupx.com/thsottiaux/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "OpenAI",
+    "platform": "X · OpenAI",
+    "mode": "active",
+    "url": "https://fxtwitter.com/OpenAI/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "OpenAI Developers",
+    "platform": "X · OpenAI",
+    "mode": "active",
+    "url": "https://fixupx.com/OpenAIDevs/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Sam Altman",
+    "platform": "X · OpenAI",
+    "mode": "active",
+    "url": "https://fixupx.com/sama/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Greg Brockman",
+    "platform": "X · OpenAI",
+    "mode": "active",
+    "url": "https://fixupx.com/gdb/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Jakub Pachocki",
+    "platform": "X · OpenAI",
+    "mode": "active",
+    "url": "https://fixupx.com/merettm/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Mark Chen",
+    "platform": "X · OpenAI",
+    "mode": "active",
+    "url": "https://fixupx.com/markchen90/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Kevin Weil",
+    "platform": "X · OpenAI",
+    "mode": "active",
+    "url": "https://fixupx.com/kevinweil/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Noam Brown",
+    "platform": "X · OpenAI",
+    "mode": "active",
+    "url": "https://fixupx.com/polynoamial/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Josh Tobin",
+    "platform": "X · OpenAI",
+    "mode": "active",
+    "url": "https://fixupx.com/josh_tobin_/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Anthropic",
+    "platform": "X · Anthropic",
+    "mode": "active",
+    "url": "https://fixupx.com/AnthropicAI/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Claude",
+    "platform": "X · Anthropic",
+    "mode": "active",
+    "url": "https://fixupx.com/claudeai/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Dario Amodei",
+    "platform": "X · Anthropic",
+    "mode": "active",
+    "url": "https://fixupx.com/DarioAmodei/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Boris Cherny",
+    "platform": "X · Anthropic",
+    "mode": "active",
+    "url": "https://fixupx.com/bcherny/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Alex Albert",
+    "platform": "X · Anthropic",
+    "mode": "active",
+    "url": "https://fixupx.com/alexalbert__/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Amanda Askell",
+    "platform": "X · Anthropic",
+    "mode": "active",
+    "url": "https://fixupx.com/AmandaAskell/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Mike Krieger",
+    "platform": "X · Anthropic",
+    "mode": "active",
+    "url": "https://fixupx.com/mikeyk/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Google DeepMind",
+    "platform": "X · Google",
+    "mode": "active",
+    "url": "https://fixupx.com/GoogleDeepMind/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Google AI",
+    "platform": "X · Google",
+    "mode": "active",
+    "url": "https://fixupx.com/GoogleAI/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Google Gemini",
+    "platform": "X · Google",
+    "mode": "active",
+    "url": "https://fixupx.com/GeminiApp/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Sundar Pichai",
+    "platform": "X · Google",
+    "mode": "active",
+    "url": "https://fixupx.com/sundarpichai/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Demis Hassabis",
+    "platform": "X · Google",
+    "mode": "active",
+    "url": "https://fixupx.com/demishassabis/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Koray Kavukcuoglu",
+    "platform": "X · Google",
+    "mode": "active",
+    "url": "https://fixupx.com/koraykv/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Jeff Dean",
+    "platform": "X · AI 研究",
+    "mode": "active",
+    "url": "https://fixupx.com/JeffDean/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Logan Kilpatrick",
+    "platform": "X · Google",
+    "mode": "active",
+    "url": "https://fixupx.com/OfficialLoganK/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Microsoft AI",
+    "platform": "X · Microsoft / GitHub",
+    "mode": "active",
+    "url": "https://fxtwitter.com/MicrosoftAI/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Satya Nadella",
+    "platform": "X · Microsoft / GitHub",
+    "mode": "active",
+    "url": "https://fixupx.com/satyanadella/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Mustafa Suleyman",
+    "platform": "X · Microsoft / GitHub",
+    "mode": "active",
+    "url": "https://fixupx.com/mustafasuleyman/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Kevin Scott",
+    "platform": "X · Microsoft / GitHub",
+    "mode": "active",
+    "url": "https://fixupx.com/kevin_scott/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "GitHub",
+    "platform": "X · Microsoft / GitHub",
+    "mode": "active",
+    "url": "https://fixupx.com/github/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "AI at Meta",
+    "platform": "X · Meta",
+    "mode": "active",
+    "url": "https://fxtwitter.com/AIatMeta/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Alexandr Wang",
+    "platform": "X · Meta",
+    "mode": "active",
+    "url": "https://fixupx.com/alexandr_wang/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Nat Friedman",
+    "platform": "X · Meta",
+    "mode": "active",
+    "url": "https://fixupx.com/natfriedman/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Yann LeCun",
+    "platform": "X · 独立研究与工程",
+    "mode": "active",
+    "url": "https://fixupx.com/ylecun/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "NVIDIA",
+    "platform": "X · NVIDIA",
+    "mode": "active",
+    "url": "https://fixupx.com/nvidia/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "AWS",
+    "platform": "X · AWS / Apple",
+    "mode": "active",
+    "url": "https://fixupx.com/awscloud/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Tim Cook",
+    "platform": "X · AWS / Apple",
+    "mode": "active",
+    "url": "https://fixupx.com/tim_cook/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Grok",
+    "platform": "X · xAI / Grok",
+    "mode": "active",
+    "url": "https://fixupx.com/grok/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Elon Musk",
+    "platform": "X · xAI / Grok",
+    "mode": "active",
+    "url": "https://fixupx.com/elonmusk/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Hugging Face",
+    "platform": "X · Hugging Face",
+    "mode": "active",
+    "url": "https://fixupx.com/huggingface/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Clément Delangue",
+    "platform": "X · Hugging Face",
+    "mode": "active",
+    "url": "https://fixupx.com/ClementDelangue/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Julien Chaumond",
+    "platform": "X · Hugging Face",
+    "mode": "active",
+    "url": "https://fixupx.com/julien_c/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Thomas Wolf",
+    "platform": "X · Hugging Face",
+    "mode": "active",
+    "url": "https://fixupx.com/Thom_Wolf/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Mistral AI",
+    "platform": "X · Mistral",
+    "mode": "active",
+    "url": "https://fxtwitter.com/MistralAI/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Arthur Mensch",
+    "platform": "X · Mistral",
+    "mode": "active",
+    "url": "https://fixupx.com/arthurmensch/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Guillaume Lample",
+    "platform": "X · Mistral",
+    "mode": "active",
+    "url": "https://fixupx.com/GuillaumeLample/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Perplexity",
+    "platform": "X · Perplexity",
+    "mode": "active",
+    "url": "https://fixupx.com/perplexity_ai/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Aravind Srinivas",
+    "platform": "X · Perplexity",
+    "mode": "active",
+    "url": "https://fixupx.com/AravSrinivas/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Denis Yarats",
+    "platform": "X · Perplexity",
+    "mode": "active",
+    "url": "https://fxtwitter.com/denisyarats/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "DeepSeek",
+    "platform": "X · 中国 AI 团队",
+    "mode": "active",
+    "url": "https://fixupx.com/deepseek_ai/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Qwen",
+    "platform": "X · 中国 AI 团队",
+    "mode": "active",
+    "url": "https://fixupx.com/Alibaba_Qwen/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Kimi",
+    "platform": "X · 中国 AI 团队",
+    "mode": "active",
+    "url": "https://fixupx.com/Kimi_Moonshot/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "MiniMax",
+    "platform": "X · 中国 AI 团队",
+    "mode": "active",
+    "url": "https://fixupx.com/MiniMax_AI/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "智谱 Z.ai",
+    "platform": "X · 中国 AI 团队",
+    "mode": "active",
+    "url": "https://fixupx.com/Zai_org/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Cursor",
+    "platform": "X · AI 工具",
+    "mode": "active",
+    "url": "https://fixupx.com/cursor_ai/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Michael Truell",
+    "platform": "X · AI 工具",
+    "mode": "active",
+    "url": "https://fxtwitter.com/mntruell/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Cognition",
+    "platform": "X · AI 工具",
+    "mode": "active",
+    "url": "https://fixupx.com/cognition/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Harrison Chase",
+    "platform": "X · AI 工具",
+    "mode": "active",
+    "url": "https://fixupx.com/hwchase17/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "vLLM",
+    "platform": "X · AI 工具",
+    "mode": "active",
+    "url": "https://fixupx.com/vllm_project/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Andrej Karpathy",
+    "platform": "X · 独立研究与工程",
+    "mode": "active",
+    "url": "https://fixupx.com/karpathy/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Andrew Ng",
+    "platform": "X · 独立研究与工程",
+    "mode": "active",
+    "url": "https://fixupx.com/AndrewYNg/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Georgi Gerganov",
+    "platform": "X · 独立研究与工程",
+    "mode": "active",
+    "url": "https://fixupx.com/ggerganov/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Simon Willison",
+    "platform": "X · 独立研究与工程",
+    "mode": "active",
+    "url": "https://fixupx.com/simonw/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Jeremy Howard",
+    "platform": "X · 独立研究与工程",
+    "mode": "active",
+    "url": "https://fixupx.com/jeremyphoward/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Lisa Su",
+    "platform": "X · AMD",
+    "mode": "active",
+    "url": "https://fixupx.com/LisaSu/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Intel",
+    "platform": "X · Intel",
+    "mode": "active",
+    "url": "https://fixupx.com/intel/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Cristiano Amon",
+    "platform": "X · Qualcomm",
+    "mode": "active",
+    "url": "https://fixupx.com/cristianoamon/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Qualcomm",
+    "platform": "X · Qualcomm",
+    "mode": "active",
+    "url": "https://fxtwitter.com/Qualcomm/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Matthew Prince",
+    "platform": "X · Cloudflare",
+    "mode": "active",
+    "url": "https://fixupx.com/eastdakota/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Ali Ghodsi",
+    "platform": "X · Databricks",
+    "mode": "active",
+    "url": "https://fixupx.com/alighodsi/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Databricks",
+    "platform": "X · Databricks",
+    "mode": "active",
+    "url": "https://fxtwitter.com/databricks/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Amjad Masad",
+    "platform": "X · Replit",
+    "mode": "active",
+    "url": "https://fixupx.com/amasad/feed.xml",
+    "adapter": "rss"
   }
 ]

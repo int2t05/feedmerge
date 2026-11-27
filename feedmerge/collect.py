@@ -8,6 +8,7 @@ from datetime import datetime
 from email.utils import parsedate_to_datetime
 from html import unescape
 from urllib.parse import parse_qsl, urlencode, urljoin, urlsplit, urlunsplit
+from zoneinfo import ZoneInfo
 
 import feedparser
 import requests
@@ -58,15 +59,16 @@ def parse_date(value):
     return result if result.tzinfo else None
 
 
-def fetch(url):
+def fetch(url, *, default_headers=False):
     """用有限的超时读取一个公开地址。"""
     retry = Retry(total=1, status_forcelist=(502, 503, 504), respect_retry_after_header=False)
     with requests.Session() as client:
         client.mount("https://", HTTPAdapter(max_retries=retry))
-        result = client.get(url, timeout=(5, 15), headers={
+        headers = None if default_headers else {
             "User-Agent": "FeedMerge/0.1",
             "Accept": "application/rss+xml, application/atom+xml, text/html, */*",
-        })
+        }
+        result = client.get(url, timeout=(5, 15), headers=headers)
         result.raise_for_status()
         return result
 
@@ -80,15 +82,32 @@ def make_entry(source, url, title, excerpt, date):
 
 
 def read_feed(source, response):
+    """从 RSS 或 Atom 读取内容，FxEmbed 只收账号本人的原帖。"""
     parsed = feedparser.parse(response.content)
     if not parsed.version:
         raise ValueError("响应不是 RSS 或 Atom")
-    return [
-        make_entry(source, urljoin(response.url, item.get("link", "")), item.get("title"),
-                   (item.get("content") or [{}])[0].get("value") or item.get("summary"),
-                   item.get("published") or item.get("updated"))
-        for item in parsed.entries[:35] if item.get("link")
-    ]
+    feed_url = urlsplit(response.url)
+    owner = (
+        feed_url.path.split("/")[1].casefold()
+        if feed_url.hostname in {"fixupx.com", "fxtwitter.com", "www.fxtwitter.com"} else ""
+    )
+    entries = []
+    for item in parsed.entries:
+        if not item.get("link"):
+            continue
+        url = canonical(urljoin(response.url, item["link"]))
+        if owner and not re.match(rf"^https?://x\.com/{re.escape(owner)}/status/", url, re.I):
+            continue
+        entry = make_entry(
+            source, url, item.get("title"),
+            (item.get("content") or [{}])[0].get("value") or item.get("summary"),
+            item.get("published") or item.get("updated"),
+        )
+        if entry:
+            entries.append(entry)
+        if len(entries) == 35:
+            break
+    return entries
 
 
 def next_data(response):
@@ -117,16 +136,36 @@ def read_jike(source, response):
     ]
 
 
-READERS = {"rss": read_feed, "podcast": read_podcast, "jike": read_jike}
+def read_tencent_column(source, response):
+    """读取腾讯云公开专栏随页面返回的文章摘要和发布日期。"""
+    fallback = next_data(response)["fallback"]
+    pages = next(value for key, value in fallback.items() if "/api/column/getArticlesByColumnId" in key)
+    zone = ZoneInfo("Asia/Shanghai")
+    entries = []
+    for row in pages[0]["list"]:
+        if row.get("author", {}).get("nickname") != source or not row.get("createTime"):
+            continue
+        published = datetime.strptime(row["createTime"], "%Y/%m/%d %H:%M:%S").replace(tzinfo=zone)
+        entries.append(make_entry(
+            source, urljoin(response.url, f'/developer/article/{row["articleId"]}'),
+            row.get("title"), row.get("summary"), published.isoformat(),
+        ))
+    return entries
+
+
+READERS = {"rss": read_feed, "podcast": read_podcast, "jike": read_jike, "tencent-column": read_tencent_column}
 
 
 def collect_one(source):
     try:
         url = source["url"]
         try:
-            response = fetch(url)
-        except (requests.HTTPError, requests.ConnectionError, requests.Timeout):
-            if urlsplit(url).hostname != "fixupx.com":
+            # 腾讯云专栏在默认请求头下提供可解析的公开列表。
+            response = fetch(url, default_headers=source["adapter"] == "tencent-column")
+        except (requests.HTTPError, requests.ConnectionError, requests.Timeout) as error:
+            if urlsplit(url).hostname != "fixupx.com" or (
+                isinstance(error, requests.HTTPError) and error.response.status_code not in {404, 502, 503, 504}
+            ):
                 raise
             # FxEmbed 提供两个公开域名，主域偶发失败时试一次备用域。
             response = fetch(url.replace("https://fixupx.com/", "https://fxtwitter.com/", 1))
@@ -138,7 +177,7 @@ def collect_one(source):
         return [], f"HTTP {error.response.status_code}"
     except requests.RequestException:
         return [], "网络请求失败或超时"
-    except (ValueError, KeyError, TypeError, AttributeError):
+    except (ValueError, KeyError, TypeError, AttributeError, IndexError, StopIteration):
         return [], "响应格式与当前适配器不符"
 
 

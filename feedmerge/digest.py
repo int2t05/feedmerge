@@ -2,7 +2,9 @@
 
 import json
 import os
+from concurrent.futures import ThreadPoolExecutor
 from datetime import UTC, datetime
+from itertools import batched
 
 import requests
 
@@ -19,11 +21,8 @@ SYSTEM = (
 )
 
 
-def summarize(entries):
-    """校验模型引用，下游只使用已经验证的原文链接。"""
-    key = os.environ.get("DEEPSEEK_API_KEY")
-    if not key:
-        raise RuntimeError("缺少 DEEPSEEK_API_KEY")
+def summarize_batch(entries, key):
+    """为单批来源生成摘要并校验每条引用。"""
     article_list = [
         {"id": index, "source": entry.source, "title": entry.title, "text": entry.excerpt}
         for index, entry in enumerate(entries, 1)
@@ -35,13 +34,13 @@ def summarize(entries):
             "model": MODEL,
             "thinking": {"type": "disabled"},
             "response_format": {"type": "json_object"},
-            "max_tokens": 4500,
+            "max_tokens": 512 + 128 * len(article_list),
             "messages": [
                 {"role": "system", "content": SYSTEM},
                 {"role": "user", "content": json.dumps({"article_list": article_list}, ensure_ascii=False)},
             ],
         },
-        timeout=(8, 90),
+        timeout=(8, 150),
     )
     if response.status_code != 200:
         raise RuntimeError(f"DeepSeek 请求失败，HTTP {response.status_code}")
@@ -69,6 +68,22 @@ def summarize(entries):
         {"summary": summaries[index], "source": {"name": entry.source, "url": entry.url}}
         for index, entry in enumerate(entries, 1)
     ]
+
+
+def summarize(entries):
+    """并发处理小批次并保持顺序，格式错误时只重试该批一次。"""
+    key = os.environ.get("DEEPSEEK_API_KEY")
+    if not key:
+        raise RuntimeError("缺少 DEEPSEEK_API_KEY")
+
+    def generate(batch):
+        try:
+            return summarize_batch(batch, key)
+        except (ValueError, TypeError, KeyError, IndexError):
+            return summarize_batch(batch, key)
+
+    with ThreadPoolExecutor(max_workers=3) as pool:
+        return [point for points in pool.map(generate, batched(entries, 10)) for point in points]
 
 
 def make_digest(day, entries, status):

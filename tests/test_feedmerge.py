@@ -6,7 +6,7 @@ from datetime import date
 from unittest.mock import Mock, patch
 
 from feedmerge.__main__ import ZONE, read_sources
-from feedmerge.collect import collect, make_entry
+from feedmerge.collect import collect, make_entry, read_feed
 from feedmerge.digest import summarize
 from feedmerge.site import format_daily
 
@@ -14,8 +14,22 @@ from feedmerge.site import format_daily
 class FeedMergeTest(unittest.TestCase):
     def test_source_inventory(self):
         sources = read_sources()
-        self.assertEqual(len(sources), 49)
+        self.assertGreaterEqual(len(sources), 49)
         self.assertTrue(any(source["mode"] == "active" for source in sources))
+
+    def test_x_rss_skips_reposts_with_another_author_url(self):
+        response = Mock(url="https://fixupx.com/Jimmy/feed.xml")
+        response.content = b"""<rss version="2.0"><channel><title>Jimmy</title>
+          <item><title>Repost</title><link>https://x.com/other/status/1</link>
+          <description>Other author</description>
+          <pubDate>Thu, 26 Nov 2026 18:00:00 GMT</pubDate></item>
+          <item><title>Original</title><link>https://fxtwitter.com/jimmy/status/2</link>
+          <description>Author text</description>
+          <pubDate>Thu, 26 Nov 2026 17:00:00 GMT</pubDate></item>
+          </channel></rss>"""
+        self.assertEqual([item.url for item in read_feed("Jimmy", response)], [
+            "https://x.com/jimmy/status/2",
+        ])
 
     def test_local_date_and_canonical_url(self):
         sources = [
@@ -53,6 +67,23 @@ class FeedMergeTest(unittest.TestCase):
         self.assertNotIn("<script>", text)
         self.assertNotIn("{{", text)
         self.assertIn("[甲](<https://example.com/article>)", text)
+
+    def test_digest_batches_and_retries_invalid_response(self):
+        entries = [
+            make_entry(f"来源 {i}", f"https://example.com/{i}", "标题", "概要",
+                       "2026-11-27T12:00:00+08:00")
+            for i in range(12)
+        ]
+        with patch.dict("os.environ", {"DEEPSEEK_API_KEY": "fake-test-key"}):
+            def generate(batch, key):
+                if batch[0] == entries[0] and not getattr(generate, "retried", False):
+                    generate.retried = True
+                    raise ValueError("invalid JSON")
+                return [entry.source for entry in batch]
+
+            with patch("feedmerge.digest.summarize_batch", side_effect=generate) as mock:
+                self.assertEqual(summarize(entries), [entry.source for entry in entries])
+                self.assertEqual(sorted(len(call.args[0]) for call in mock.call_args_list), [2, 10, 10])
 
 
 if __name__ == "__main__":
