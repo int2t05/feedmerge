@@ -17,6 +17,9 @@ from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
 
+X_FEED_HOSTS = {"fixupx.com", "fxtwitter.com", "www.fxtwitter.com", "teapawt.org"}
+
+
 @dataclass(frozen=True)
 class Entry:
     source: str
@@ -38,7 +41,7 @@ def canonical(value):
     if parts.scheme not in {"http", "https"} or not parts.hostname or parts.username or parts.password:
         return ""
     host = parts.netloc.lower()
-    if host in {"fxtwitter.com", "www.fxtwitter.com", "fixupx.com", "twitter.com"}:
+    if host in X_FEED_HOSTS or host == "twitter.com":
         host = "x.com"
     if host in {"www.bilibili.com", "bilibili.com", "www.douyin.com", "douyin.com", "weibo.com", "m.weibo.cn"}:
         return ""
@@ -82,14 +85,14 @@ def make_entry(source, url, title, excerpt, date):
 
 
 def read_feed(source, response):
-    """从 RSS 或 Atom 读取内容，FxEmbed 只收账号本人的原帖。"""
+    """从 RSS 或 Atom 读取内容，X 时间线只收账号本人的原帖。"""
     parsed = feedparser.parse(response.content)
     if not parsed.version:
         raise ValueError("响应不是 RSS 或 Atom")
     feed_url = urlsplit(response.url)
     owner = (
         feed_url.path.split("/")[1].casefold()
-        if feed_url.hostname in {"fixupx.com", "fxtwitter.com", "www.fxtwitter.com"} else ""
+        if feed_url.hostname in X_FEED_HOSTS else ""
     )
     entries = []
     for item in parsed.entries:
@@ -159,20 +162,25 @@ READERS = {"rss": read_feed, "podcast": read_podcast, "jike": read_jike, "tencen
 def collect_one(source):
     try:
         url = source["url"]
-        try:
-            # 腾讯云专栏在默认请求头下提供可解析的公开列表。
-            response = fetch(url, default_headers=source["adapter"] == "tencent-column")
-        except (requests.HTTPError, requests.ConnectionError, requests.Timeout) as error:
-            if urlsplit(url).hostname != "fixupx.com" or (
-                isinstance(error, requests.HTTPError) and error.response.status_code not in {404, 502, 503, 504}
-            ):
-                raise
-            # FxEmbed 提供两个公开域名，主域偶发失败时试一次备用域。
-            response = fetch(url.replace("https://fixupx.com/", "https://fxtwitter.com/", 1))
-        entries = [entry for entry in READERS[source["adapter"]](source["name"], response) if entry]
-        if not entries:
-            return [], "无包含正文和有效日期的条目"
-        return entries, f"成功，{len(entries)} 条可选"
+        addresses = [url]
+        if urlsplit(url).hostname == "fixupx.com":
+            addresses.append(url.replace("https://fixupx.com/", "https://fxtwitter.com/", 1))
+        if source.get("fallback_url"):
+            addresses.append(source["fallback_url"])
+        for index, address in enumerate(addresses):
+            try:
+                # 腾讯云专栏在默认请求头下提供可解析的公开列表。
+                response = fetch(address, default_headers=source["adapter"] == "tencent-column")
+            except (requests.HTTPError, requests.ConnectionError, requests.Timeout) as error:
+                if index == len(addresses) - 1 or (
+                    isinstance(error, requests.HTTPError) and error.response.status_code not in {404, 502, 503, 504}
+                ):
+                    raise
+                continue
+            entries = [entry for entry in READERS[source["adapter"]](source["name"], response) if entry]
+            if entries:
+                return entries, f"成功，{len(entries)} 条可选"
+        return [], "无包含正文和有效日期的条目"
     except requests.HTTPError as error:
         return [], f"HTTP {error.response.status_code}"
     except requests.RequestException:

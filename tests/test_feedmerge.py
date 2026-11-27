@@ -30,6 +30,11 @@ class FeedMergeTest(unittest.TestCase):
         self.assertEqual([item.url for item in read_feed("Jimmy", response)], [
             "https://x.com/jimmy/status/2",
         ])
+        response.url = "https://teapawt.org/jimmy/rss"
+        response.content = response.content.replace(b"fxtwitter.com", b"teapawt.org")
+        self.assertEqual([item.url for item in read_feed("Jimmy", response)], [
+            "https://x.com/jimmy/status/2",
+        ])
 
     def test_local_date_and_canonical_url(self):
         sources = [
@@ -68,7 +73,7 @@ class FeedMergeTest(unittest.TestCase):
         self.assertNotIn("{{", text)
         self.assertIn("[甲](<https://example.com/article>)", text)
 
-    def test_digest_batches_and_retries_invalid_response(self):
+    def test_digest_regenerates_only_missing_summary(self):
         entries = [
             make_entry(f"来源 {i}", f"https://example.com/{i}", "标题", "概要",
                        "2026-11-27T12:00:00+08:00")
@@ -76,14 +81,16 @@ class FeedMergeTest(unittest.TestCase):
         ]
         with patch.dict("os.environ", {"DEEPSEEK_API_KEY": "fake-test-key"}):
             def generate(batch, key):
-                if batch[0] == entries[0] and not getattr(generate, "retried", False):
-                    generate.retried = True
-                    raise ValueError("invalid JSON")
-                return [entry.source for entry in batch]
+                return {
+                    index: entry.source for index, entry in enumerate(batch, 1)
+                    if entry != entries[2] or len(batch) == 1
+                }
 
             with patch("feedmerge.digest.summarize_batch", side_effect=generate) as mock:
-                self.assertEqual(summarize(entries), [entry.source for entry in entries])
-                self.assertEqual(sorted(len(call.args[0]) for call in mock.call_args_list), [2, 10, 10])
+                self.assertEqual([point["summary"] for point in summarize(entries)], [
+                    entry.source for entry in entries
+                ])
+                self.assertEqual(sorted(len(call.args[0]) for call in mock.call_args_list), [1, 2, 10])
 
 
 if __name__ == "__main__":

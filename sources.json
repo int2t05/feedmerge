@@ -339,6 +339,7 @@
     "platform": "X · OpenAI",
     "mode": "active",
     "url": "https://fixupx.com/thsottiaux/feed.xml",
+    "fallback_url": "https://teapawt.org/thsottiaux/rss",
     "adapter": "rss"
   },
   {
