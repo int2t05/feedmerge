@@ -1,0 +1,12 @@
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+node_modules/
+site/.vitepress/cache/
+site/.vitepress/dist/
+site/daily/
+site/public/archive-data.json
+site/index.md
+site/sources.md

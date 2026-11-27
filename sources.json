@@ -1,0 +1,329 @@
+[
+  {
+    "name": "李博杰",
+    "platform": "独立站",
+    "mode": "active",
+    "url": "https://01.me/atom.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "量子位",
+    "platform": "微信公众号",
+    "mode": "active",
+    "url": "https://wechat2rss.xlab.app/feed/7131b577c61365cb47e81000738c10d872685908.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "机器之心",
+    "platform": "微信公众号",
+    "mode": "active",
+    "url": "https://wechat2rss.xlab.app/feed/51e92aad2728acdd1fda7314be32b16639353001.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "新智元",
+    "platform": "微信公众号",
+    "mode": "active",
+    "url": "https://wechat2rss.xlab.app/feed/ede30346413ea70dbef5d485ea5cbb95cca446e7.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "有新Newin",
+    "platform": "微信公众号",
+    "mode": "pending",
+    "url": "https://www.iyangqi.com/member/48",
+    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+  },
+  {
+    "name": "赛博禅心",
+    "platform": "微信公众号",
+    "mode": "pending",
+    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+  },
+  {
+    "name": "CV Hub",
+    "platform": "微信公众号",
+    "mode": "pending",
+    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+  },
+  {
+    "name": "南瓜博士",
+    "platform": "微信公众号",
+    "mode": "pending",
+    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+  },
+  {
+    "name": "王建硕",
+    "platform": "微信公众号",
+    "mode": "pending",
+    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+  },
+  {
+    "name": "ShowMeAI",
+    "platform": "微信公众号",
+    "mode": "pending",
+    "url": "https://www.showmeai.tech/",
+    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+  },
+  {
+    "name": "极客公园",
+    "platform": "微信公众号",
+    "mode": "active",
+    "url": "https://wechat2rss.xlab.app/feed/1a5aec98e71c707c8ca092bc2c255b9d4bac477d.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "红杉汇",
+    "platform": "微信公众号",
+    "mode": "pending",
+    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+  },
+  {
+    "name": "五源资本",
+    "platform": "微信公众号",
+    "mode": "pending",
+    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+  },
+  {
+    "name": "马丁的面包屑",
+    "platform": "微信公众号",
+    "mode": "pending",
+    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+  },
+  {
+    "name": "共识粉碎机",
+    "platform": "微信公众号",
+    "mode": "pending",
+    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+  },
+  {
+    "name": "数据派THU",
+    "platform": "微信公众号",
+    "mode": "pending",
+    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+  },
+  {
+    "name": "新硅NewGeek",
+    "platform": "微信公众号",
+    "mode": "pending",
+    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+  },
+  {
+    "name": "暗涌Waves",
+    "platform": "微信公众号",
+    "mode": "pending",
+    "url": "https://www.36kr.com/p/3531950187338882",
+    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+  },
+  {
+    "name": "远川研究所",
+    "platform": "微信公众号",
+    "mode": "pending",
+    "url": "https://yuanchuan.cn/",
+    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+  },
+  {
+    "name": "lencx@浮之静",
+    "platform": "微信公众号",
+    "mode": "pending",
+    "url": "https://github.com/lenxAI",
+    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+  },
+  {
+    "name": "质朴发言",
+    "platform": "微信公众号",
+    "mode": "pending",
+    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+  },
+  {
+    "name": "硅星人Pro",
+    "platform": "微信公众号",
+    "mode": "pending",
+    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+  },
+  {
+    "name": "孔某人的低维认知",
+    "platform": "微信公众号",
+    "mode": "pending",
+    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+  },
+  {
+    "name": "潜云思绪",
+    "platform": "微信公众号",
+    "mode": "pending",
+    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+  },
+  {
+    "name": "夕小瑶科技说",
+    "platform": "微信公众号",
+    "mode": "active",
+    "url": "https://wechat2rss.xlab.app/feed/a1cd365aa14ed7d64cabfc8aa086da40ecaba34d.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "集智俱乐部",
+    "platform": "微信公众号",
+    "mode": "active",
+    "url": "https://wechat2rss.xlab.app/feed/8540570d27c0bfe0a219173cf1ace83ae79445cb.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "宝玉",
+    "platform": "X",
+    "mode": "active",
+    "url": "https://fixupx.com/dotey/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Jim Fan",
+    "platform": "X",
+    "mode": "active",
+    "url": "https://fixupx.com/DrJimFan/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "1LittleCoder",
+    "platform": "X",
+    "mode": "active",
+    "url": "https://fixupx.com/1littlecoder/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "fin",
+    "platform": "X",
+    "mode": "active",
+    "url": "https://fixupx.com/fi56622380/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "向阳乔木",
+    "platform": "X",
+    "mode": "active",
+    "url": "https://fixupx.com/vista8/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Matt Wolfe",
+    "platform": "X",
+    "mode": "active",
+    "url": "https://fixupx.com/mreflow/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "goldengrape",
+    "platform": "作者通讯",
+    "mode": "active",
+    "url": "https://quaily.com/goldengrape/feed/atom",
+    "adapter": "rss"
+  },
+  {
+    "name": "金田达也",
+    "platform": "X",
+    "mode": "active",
+    "url": "https://fixupx.com/JefferyTatsuya/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "INDIGO Talk",
+    "platform": "小宇宙",
+    "mode": "active",
+    "url": "https://www.xiaoyuzhoufm.com/podcast/62bbe7a66bad6a3c0c6222d3",
+    "adapter": "podcast"
+  },
+  {
+    "name": "脑放电波",
+    "platform": "小宇宙",
+    "mode": "active",
+    "url": "https://www.xiaoyuzhoufm.com/podcast/636669d51064cb55f31505fc",
+    "adapter": "podcast"
+  },
+  {
+    "name": "OnBoard!",
+    "platform": "小宇宙",
+    "mode": "active",
+    "url": "https://www.xiaoyuzhoufm.com/podcast/61cbaac48bb4cd867fcabe22",
+    "adapter": "podcast"
+  },
+  {
+    "name": "科技沉思录",
+    "platform": "小宇宙",
+    "mode": "active",
+    "url": "https://www.xiaoyuzhoufm.com/podcast/6458939b7d934b8505e747d9",
+    "adapter": "podcast"
+  },
+  {
+    "name": "42章经",
+    "platform": "小宇宙",
+    "mode": "active",
+    "url": "https://www.xiaoyuzhoufm.com/podcast/648b0b641c48983391a63f98",
+    "adapter": "podcast"
+  },
+  {
+    "name": "乱翻书",
+    "platform": "小宇宙",
+    "mode": "active",
+    "url": "https://www.xiaoyuzhoufm.com/podcast/61358d971c5d56efe5bcb5d2",
+    "adapter": "podcast"
+  },
+  {
+    "name": "歸藏的AIGC周刊",
+    "platform": "博客",
+    "mode": "active",
+    "url": "https://quail.ink/op7418/feed/atom",
+    "adapter": "rss"
+  },
+  {
+    "name": "Jimmy wong",
+    "platform": "博客",
+    "mode": "active",
+    "url": "https://suiyisouxun.substack.com/feed",
+    "adapter": "rss"
+  },
+  {
+    "name": "字节",
+    "platform": "知乎",
+    "mode": "pending",
+    "note": "等待核实作者主页与可用更新端点"
+  },
+  {
+    "name": "NLP万花筒",
+    "platform": "知乎",
+    "mode": "pending",
+    "note": "等待核实专栏入口与可用更新端点"
+  },
+  {
+    "name": "向阳",
+    "platform": "飞书多维表格",
+    "mode": "reference",
+    "url": "https://bytedance.larkoffice.com/base/AIMAbnJxQaNgSGsBAtwcdAkLnvf",
+    "note": "公开表格入口，自动同步需官方读取授权"
+  },
+  {
+    "name": "GPT/AIGC/LLM/NLP 知识库",
+    "platform": "飞书文档",
+    "mode": "reference",
+    "url": "https://gofurther.feishu.cn/docx/Enofdl25BotoVrxth8ec4rNBn5c",
+    "note": "公开学习资料，页面不提供逐条发布日期"
+  },
+  {
+    "name": "产品沉思录",
+    "platform": "独立站",
+    "mode": "reference",
+    "url": "https://read.pmthinking.com/archive",
+    "note": "可读取公开历史归档，暂无已验证的新刊订阅"
+  },
+  {
+    "name": "齐思社区",
+    "platform": "社区",
+    "mode": "reference",
+    "url": "https://news.miracleplus.com/service-notice",
+    "note": "站方公告 2026-11-30 停止服务"
+  },
+  {
+    "name": "AI探索站-即刻",
+    "platform": "即刻",
+    "mode": "active",
+    "url": "https://m.okjike.com/topics/63579abb6724cc583b9bba9a",
+    "adapter": "jike"
+  }
+]
