@@ -17,7 +17,12 @@ from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
 
-X_FEED_HOSTS = {"fixupx.com", "fxtwitter.com", "www.fxtwitter.com", "teapawt.org"}
+FX_FEED_ALIASES = {
+    "fixupx.com": "fxtwitter.com",
+    "fxtwitter.com": "fixupx.com",
+    "www.fxtwitter.com": "fixupx.com",
+}
+X_FEED_HOSTS = {*FX_FEED_ALIASES, "teapawt.org"}
 
 
 @dataclass(frozen=True)
@@ -156,17 +161,61 @@ def read_tencent_column(source, response):
     return entries
 
 
-READERS = {"rss": read_feed, "podcast": read_podcast, "jike": read_jike, "tencent-column": read_tencent_column}
+def read_pmthinking(source, response):
+    """从产品沉思录归档找到近期文章，并读取原站正文。"""
+    document = BeautifulSoup(response.content, "html.parser")
+    entries = []
+    for link in document.select('li > time[datetime] + a[href^="/p/"]', limit=5):
+        url = urljoin(response.url, link["href"])
+        page = BeautifulSoup(fetch(url).content, "html.parser")
+        paragraphs = page.select('article[aria-labelledby="article-title"] > p')
+        text = " ".join(paragraph.get_text(" ", strip=True) for paragraph in paragraphs)
+        published = link.find_previous_sibling("time")["datetime"]
+        entries.append(make_entry(source, url, link.get_text(" ", strip=True), text, published + "T00:00:00+08:00"))
+    return entries
+
+
+def read_tuoluo_column(source, response):
+    """从陀螺科技作者专栏读取近期文章的正文和发布日期。"""
+    document = BeautifulSoup(response.content, "html.parser")
+    entries = []
+    zone = ZoneInfo("Asia/Shanghai")
+    for card in document.select(".article_list > li.item", limit=5):
+        link = card.select_one(".intro a.title[href]")
+        stamp = card.select_one(".otherInfo .time")
+        if not (link and stamp):
+            continue
+        url = urljoin(response.url, link["href"])
+        page = BeautifulSoup(fetch(url).content, "html.parser")
+        paragraphs = page.select("#content_acritle p")
+        text = " ".join(paragraph.get_text(" ", strip=True) for paragraph in paragraphs)
+        published = datetime.strptime(stamp.get_text(strip=True), "%Y年%m月%d日").replace(tzinfo=zone)
+        entries.append(make_entry(source, url, link.get_text(" ", strip=True), text, published.isoformat()))
+    return entries
+
+
+READERS = {
+    "rss": read_feed,
+    "podcast": read_podcast,
+    "jike": read_jike,
+    "tencent-column": read_tencent_column,
+    "pmthinking": read_pmthinking,
+    "tuoluo-column": read_tuoluo_column,
+}
 
 
 def collect_one(source):
     try:
         url = source["url"]
         addresses = [url]
-        if urlsplit(url).hostname == "fixupx.com":
-            addresses.append(url.replace("https://fixupx.com/", "https://fxtwitter.com/", 1))
-        if source.get("fallback_url"):
-            addresses.append(source["fallback_url"])
+        feed_url = urlsplit(url)
+        if alternate_host := FX_FEED_ALIASES.get(feed_url.hostname):
+            # 两个 FxEmbed 域名都不可用时，尝试同一账号的独立 RSS。
+            owner = feed_url.path.split("/")[1]
+            addresses += [
+                feed_url._replace(netloc=alternate_host).geturl(),
+                f"https://teapawt.org/{owner}/rss",
+            ]
         for index, address in enumerate(addresses):
             try:
                 # 腾讯云专栏在默认请求头下提供可解析的公开列表。

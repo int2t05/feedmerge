@@ -43,15 +43,17 @@
   },
   {
     "name": "CV Hub",
-    "platform": "微信公众号",
-    "mode": "pending",
-    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+    "platform": "CSDN · CVHub",
+    "mode": "active",
+    "url": "https://rss.csdn.net/CVHub/rss/map",
+    "adapter": "rss"
   },
   {
     "name": "南瓜博士",
-    "platform": "微信公众号",
-    "mode": "pending",
-    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+    "platform": "即刻 · 主笔 ElfeXu",
+    "mode": "active",
+    "url": "https://m.okjike.com/users/CBDC65DE-E99C-4A4B-9939-DC1E1F0761CF",
+    "adapter": "jike"
   },
   {
     "name": "王建硕",
@@ -83,9 +85,10 @@
   },
   {
     "name": "五源资本",
-    "platform": "微信公众号",
-    "mode": "pending",
-    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+    "platform": "小宇宙 · 五源小酒馆",
+    "mode": "active",
+    "url": "https://www.xiaoyuzhoufm.com/podcast/6614ecf1ab706f6f5b1f1fba",
+    "adapter": "podcast"
   },
   {
     "name": "马丁的面包屑",
@@ -110,9 +113,10 @@
   },
   {
     "name": "新硅NewGeek",
-    "platform": "微信公众号",
-    "mode": "pending",
-    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+    "platform": "陀螺科技 · 作者专栏",
+    "mode": "active",
+    "url": "https://www.tuoluo.cn/columns/author1898142/",
+    "adapter": "tuoluo-column"
   },
   {
     "name": "暗涌Waves",
@@ -139,7 +143,8 @@
     "name": "质朴发言",
     "platform": "微信公众号",
     "mode": "pending",
-    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+    "url": "https://articles.waytoagi.com/docs/AkWUwe1INi7MCJkYCbTcbfMLnHd",
+    "note": "该公开索引收录历史正文及微信原文，等待可跟踪后续发文的订阅"
   },
   {
     "name": "硅星人Pro",
@@ -150,9 +155,10 @@
   },
   {
     "name": "孔某人的低维认知",
-    "platform": "微信公众号",
+    "platform": "微信公众号 · 知乎",
     "mode": "pending",
-    "note": "等待经过校验的公开订阅或已授权的公众号 RSS"
+    "url": "https://www.zhihu.com/people/hamann-lo",
+    "note": "作者已公开关联知乎主页，等待可返回文章的订阅入口"
   },
   {
     "name": "潜云思绪",
@@ -291,7 +297,8 @@
     "name": "字节",
     "platform": "知乎",
     "mode": "pending",
-    "note": "等待核实作者主页与可用更新端点"
+    "url": "https://www.guandata.com/gy/post/5605.html",
+    "note": "观远数据官网已确认作者身份，并提供演讲实录，仍待可追踪的个人订阅"
   },
   {
     "name": "NLP万花筒",
@@ -303,22 +310,29 @@
     "name": "向阳",
     "platform": "飞书多维表格",
     "mode": "reference",
-    "url": "https://bytedance.larkoffice.com/base/AIMAbnJxQaNgSGsBAtwcdAkLnvf",
-    "note": "公开表格入口，自动同步需官方读取授权"
+    "url": "https://bytedance.larkoffice.com/base/AIMAbnJxQaNgSGsBAtwcdAkLnvf?table=tblmZTd8VuUOOONh&view=vew0Eo17BB",
+    "note": "公开视图可浏览工具卡片，卡片未显示发布日期，记录 API 需授权，作者的 X 已另接入"
   },
   {
     "name": "GPT/AIGC/LLM/NLP 知识库",
     "platform": "飞书文档",
     "mode": "reference",
     "url": "https://gofurther.feishu.cn/docx/Enofdl25BotoVrxth8ec4rNBn5c",
-    "note": "公开学习资料，页面不提供逐条发布日期"
+    "note": "公开页面可读取正文，缺少逐条发布日期，作者的即刻已另接入"
+  },
+  {
+    "name": "遥行Gofurther",
+    "platform": "即刻 · 飞书知识库作者",
+    "mode": "active",
+    "url": "https://m.okjike.com/users/917E7521-D197-4B7A-A66A-00F54EB642E2",
+    "adapter": "jike"
   },
   {
     "name": "产品沉思录",
     "platform": "独立站",
-    "mode": "reference",
+    "mode": "active",
     "url": "https://read.pmthinking.com/archive",
-    "note": "可读取公开历史归档，暂无已验证的新刊订阅"
+    "adapter": "pmthinking"
   },
   {
     "name": "齐思社区",
@@ -339,7 +353,6 @@
     "platform": "X · OpenAI",
     "mode": "active",
     "url": "https://fixupx.com/thsottiaux/feed.xml",
-    "fallback_url": "https://teapawt.org/thsottiaux/rss",
     "adapter": "rss"
   },
   {
@@ -837,6 +850,48 @@
     "platform": "X · Replit",
     "mode": "active",
     "url": "https://fixupx.com/amasad/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Ilya Sutskever",
+    "platform": "X · AI 研究",
+    "mode": "active",
+    "url": "https://fixupx.com/ilyasut/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Wojciech Zaremba",
+    "platform": "X · AI 研究",
+    "mode": "active",
+    "url": "https://fixupx.com/woj_zaremba/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "John Schulman",
+    "platform": "X · AI 研究",
+    "mode": "active",
+    "url": "https://fixupx.com/johnschulman2/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Jan Leike",
+    "platform": "X · AI 研究",
+    "mode": "active",
+    "url": "https://fixupx.com/janleike/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Mira Murati",
+    "platform": "X · AI 研究",
+    "mode": "active",
+    "url": "https://fixupx.com/miramurati/feed.xml",
+    "adapter": "rss"
+  },
+  {
+    "name": "Lilian Weng",
+    "platform": "X · AI 研究",
+    "mode": "active",
+    "url": "https://fixupx.com/lilianweng/feed.xml",
     "adapter": "rss"
   }
 ]

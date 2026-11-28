@@ -5,8 +5,10 @@ import unittest
 from datetime import date
 from unittest.mock import Mock, patch
 
+import requests
+
 from feedmerge.__main__ import ZONE, read_sources
-from feedmerge.collect import collect, make_entry, read_feed
+from feedmerge.collect import collect, collect_one, make_entry, read_feed
 from feedmerge.digest import summarize
 from feedmerge.site import format_daily
 
@@ -32,9 +34,15 @@ class FeedMergeTest(unittest.TestCase):
         ])
         response.url = "https://teapawt.org/jimmy/rss"
         response.content = response.content.replace(b"fxtwitter.com", b"teapawt.org")
-        self.assertEqual([item.url for item in read_feed("Jimmy", response)], [
-            "https://x.com/jimmy/status/2",
+        unavailable = requests.HTTPError(response=Mock(status_code=404))
+        # 用 fxtwitter 作为首选域名的账号也必须走备用 RSS。
+        source = {"name": "Jimmy", "adapter": "rss", "url": "https://fxtwitter.com/jimmy/feed.xml"}
+        with patch("feedmerge.collect.fetch", side_effect=[unavailable, unavailable, response]) as fetcher:
+            entries, _ = collect_one(source)
+        self.assertEqual([call.args[0] for call in fetcher.call_args_list], [
+            source["url"], "https://fixupx.com/jimmy/feed.xml", response.url,
         ])
+        self.assertEqual([item.url for item in entries], ["https://x.com/jimmy/status/2"])
 
     def test_local_date_and_canonical_url(self):
         sources = [
